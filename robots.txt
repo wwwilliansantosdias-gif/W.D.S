@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://williansantosdias-gif.github.io/W.D.S/sitemap.xml
