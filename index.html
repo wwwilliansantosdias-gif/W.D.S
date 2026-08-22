@@ -15,6 +15,15 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"W.D.S Ferramentas","url":"https://wwwilliansantosdias-gif.github.io/W.D.S/index.html","description":"W.D.S Ferramentas cria planilhas e apps de registro para negócio, dinheiro e projetos criativos, com pagamento único e sem mensalidade.","founder":{"@type":"Person","name":"Willian Dias Santos"},"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Product","name":"Análise de Lucro"},"price":"39.99","priceCurrency":"BRL","url":"https://wwwilliansantosdias-gif.github.io/W.D.S/analise-de-lucro.html"},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Precificação de Cardápio"},"price":"59.99","priceCurrency":"BRL","url":"https://wwwilliansantosdias-gif.github.io/W.D.S/precificacao-de-cardapio.html"},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Fluxo de Caixa"},"price":"79.99","priceCurrency":"BRL","url":"https://wwwilliansantosdias-gif.github.io/W.D.S/fluxo-de-caixa.html"}]}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Preciso saber Excel avançado?","acceptedAnswer":{"@type":"Answer","text":"Não. Você digita números nos campos editáveis — cálculo, formatação e diagnóstico são automáticos."}},
+{"@type":"Question","name":"Como recebo o arquivo?","acceptedAnswer":{"@type":"Answer","text":"Entrega automática por e-mail assim que o pagamento é confirmado, direto pelo checkout Monetizze."}},
+{"@type":"Question","name":"Dá para pagar parcelado?","acceptedAnswer":{"@type":"Answer","text":"Sim. No checkout você escolhe Pix, boleto ou cartão de crédito com parcelamento."}},
+{"@type":"Question","name":"E se não servir pra mim?","acceptedAnswer":{"@type":"Answer","text":"Você tem 7 dias para pedir reembolso por e-mail, sem precisar justificar."}},
+{"@type":"Question","name":"Tem mensalidade?","acceptedAnswer":{"@type":"Answer","text":"Não. Pagamento único, arquivo seu, funciona offline e sem cadastro."}},
+{"@type":"Question","name":"Funciona no LibreOffice ou no Google Sheets?","acceptedAnswer":{"@type":"Answer","text":"As planilhas são feitas para Excel 2010 ou superior e funcionam no LibreOffice Calc. No Google Sheets algumas formatações condicionais podem se comportar de forma diferente."}}]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,10 +41,11 @@
       </a>
       <nav style="display:flex;gap:28px;">
         <a href="#produtos" style="color:#b2b6ca;font-size:14px;">Produtos</a>
+        <a href="precos.html" style="color:#b2b6ca;font-size:14px;">Preços</a>
         <a href="#sobre" style="color:#b2b6ca;font-size:14px;">Sobre</a>
         <a href="#perguntas" style="color:#b2b6ca;font-size:14px;">Perguntas</a>
       </nav>
-      <a href="analise-de-lucro.html" style="display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;color:#9184d9;border:1px solid #9184d9;border-radius:8px;padding:8px 16px;white-space:nowrap;">Análise de Lucro</a>
+      <a href="precos.html" class="btn-buy" style="min-height:40px;padding:9px 18px;font-size:13.5px;" data-track="cta_nav" data-local="nav">Ver preços</a>
     </div>
   </header>
 
@@ -47,10 +57,10 @@
         <h1 style="font-family:'Inter',sans-serif;font-weight:500;font-size:clamp(32px,4.4vw,48px);line-height:1.1;letter-spacing:-0.015em;margin:0 0 22px;color:#f3f5fe;">Tira da cabeça e <span style="color:#9184d9;">põe em ordem.</span></h1>
         <p style="font-size:17.5px;color:#b2b6ca;max-width:44ch;margin:0 0 32px;">Ferramentas de registro para gestão e criação: o lucro do seu negócio, o seu dinheiro do mês, a continuidade do seu projeto. Compra única, funciona offline, o arquivo é seu.</p>
         <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
-          <a href="analise-de-lucro.html" style="display:inline-flex;align-items:center;font-weight:500;font-size:14.5px;color:#9184d9;border:1px solid #9184d9;border-radius:8px;padding:13px 24px;">Ver a Análise de Lucro · R$ 39,99</a>
-          <a href="#produtos" style="font-size:14px;color:#b2b6ca;">Ver todas as ferramentas</a>
+          <a href="precos.html" class="btn-buy" data-track="cta_hero" data-local="hero">Ver as 3 planilhas e preços</a>
+          <a href="#demo" style="font-size:14px;color:#b2b6ca;">Testar sem pagar nada ↓</a>
         </div>
-        <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:26px;font-size:13px;color:#75798c;">
+        <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:26px;font-size:13px;color:#a2a7bd;">
           <span>Pagamento único</span>
           <span>7 dias de garantia</span>
           <span>Entrega automática</span>
@@ -58,35 +68,54 @@
         </div>
       </div>
 
+      <!-- DEMONSTRAÇÃO AO VIVO — a mesma fórmula da planilha real (custo / (1 - margem - comissão - imposto)), conferida linha a linha com gerar_planilha.py. Mantenha os dois em sincronia se a fórmula mudar. -->
       <div style="position:relative;">
         <div style="position:absolute;inset:-30px;background:radial-gradient(circle at 30% 20%, rgba(145,132,217,0.16), transparent 65%);pointer-events:none;"></div>
-        <!-- CATÁLOGO (mockup decorativo) — mantenha esta lista IDÊNTICA em produtos/status/preço à seção #produtos logo abaixo. Sempre que um produto mudar de "Em breve" para "Disponível", ou mudar de preço, atualize os dois lugares juntos. -->
-        <div style="position:relative;background:#232532;border-radius:14px;box-shadow:0 0 0 1px #595d6c, 0 16px 40px rgba(0,0,0,0.55);padding:26px 24px;">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#75798c;padding-bottom:12px;margin-bottom:14px;background:linear-gradient(to right, rgba(233,233,237,0.16), rgba(233,233,237,0.16)) no-repeat bottom / 100% 1px;">
-            <span>Arquivo W.D.S</span><span>Catálogo</span>
+        <div id="demo" style="position:relative;background:#232532;border-radius:14px;box-shadow:0 0 0 1px #595d6c, 0 16px 40px rgba(0,0,0,0.55);padding:24px;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#a2a7bd;padding-bottom:12px;margin-bottom:16px;background:linear-gradient(to right, rgba(233,233,237,0.16), rgba(233,233,237,0.16)) no-repeat bottom / 100% 1px;">
+            <span>Demonstração · a mesma conta da planilha</span><span style="color:#d2cefd;">grátis</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;font-size:13.5px;padding:10px 0;background:linear-gradient(to right, rgba(233,233,237,0.08), rgba(233,233,237,0.08)) no-repeat bottom / 100% 1px;">
-            <span style="color:#cfd3e5;">■&nbsp; Análise de Lucro</span>
-            <span style="color:#d2cefd;">R$ 39,99</span>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+            <div>
+              <label class="demo-lb" for="d-custo">Custo do prato (R$)</label>
+              <input class="demo-in" id="d-custo" type="text" inputmode="decimal" value="12,00">
+            </div>
+            <div>
+              <label class="demo-lb" for="d-margem">Margem desejada (%)</label>
+              <input class="demo-in" id="d-margem" type="number" min="0" max="90" step="1" value="30">
+            </div>
+            <div>
+              <label class="demo-lb" for="d-canal">Comissão do canal (%)</label>
+              <select class="demo-in" id="d-canal">
+                <option value="0">Balcão / salão — 0%</option>
+                <option value="12" selected>Delivery próprio — 12%</option>
+                <option value="23">iFood / marketplace — 23%</option>
+                <option value="30">Marketplace + entrega — 30%</option>
+              </select>
+            </div>
+            <div>
+              <label class="demo-lb" for="d-imposto">Imposto (%)</label>
+              <input class="demo-in" id="d-imposto" type="number" min="0" max="30" step="0.5" value="6">
+            </div>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;font-size:13.5px;padding:10px 0;background:linear-gradient(to right, rgba(233,233,237,0.08), rgba(233,233,237,0.08)) no-repeat bottom / 100% 1px;">
-            <span style="color:#cfd3e5;">■&nbsp; Precificação de Cardápio</span>
-            <span style="color:#d2cefd;">R$ 59,99</span>
+
+          <div style="display:flex;align-items:center;gap:14px;padding:16px;border-radius:10px;background:#1b1d2b;box-shadow:0 0 0 1px #3f424d;">
+            <span id="d-semaforo" style="width:12px;height:12px;border-radius:50%;background:#3f424d;flex-shrink:0;"></span>
+            <div style="flex-grow:1;">
+              <div style="font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:#a2a7bd;">Preço de venda sugerido</div>
+              <div id="d-preco" style="font-size:30px;font-weight:600;color:#f3f5fe;line-height:1.15;">—</div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:#a2a7bd;">Sobra por prato</div>
+              <div id="d-lucro" style="font-size:18px;color:#d2cefd;">—</div>
+            </div>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;font-size:13.5px;padding:10px 0;background:linear-gradient(to right, rgba(233,233,237,0.08), rgba(233,233,237,0.08)) no-repeat bottom / 100% 1px;">
-            <span style="color:#cfd3e5;">■&nbsp; Fluxo de Caixa</span>
-            <span style="color:#d2cefd;">R$ 79,99</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;font-size:13.5px;padding:10px 0;background:linear-gradient(to right, rgba(233,233,237,0.08), rgba(233,233,237,0.08)) no-repeat bottom / 100% 1px;">
-            <span style="color:#cfd3e5;">■&nbsp; Planejador Financeiro</span>
-            <span style="display:inline-flex;align-items:center;font-size:11px;padding:3px 10px;border-radius:6px;background:#3f424d;color:#f3f5fe;">Em breve</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;font-size:13.5px;padding:10px 0;">
-            <span style="color:#cfd3e5;">◆&nbsp; Guardião de Continuidade</span>
-            <span style="display:inline-flex;align-items:center;font-size:11px;padding:3px 10px;border-radius:6px;background:#3f424d;color:#f3f5fe;">Em breve</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding-top:14px;font-size:12px;color:#75798c;">
-            <span>Pagamento único · sem mensalidade</span><span style="color:#d2cefd;">1×</span>
+          <p id="d-nota" style="margin:12px 0 0;font-size:13px;color:#a2a7bd;">Digite o custo dos ingredientes do prato.</p>
+
+          <div style="margin-top:18px;padding-top:16px;background:linear-gradient(to right, rgba(233,233,237,0.12), rgba(233,233,237,0.12)) no-repeat top / 100% 1px;">
+            <p style="margin:0 0 14px;font-size:13.5px;color:#b2b6ca;">Esta é uma conta de um prato. A planilha faz o cardápio inteiro, guarda o histórico, compara canais de venda e imprime o relatório.</p>
+            <a href="precificacao-de-cardapio.html#oferta" class="btn-buy" style="width:100%;" data-track="cta_demo" data-produto="Precificação de Cardápio" data-preco="59.99" data-local="demo">Ver a planilha completa · R$ 59,99</a>
           </div>
         </div>
       </div>
@@ -113,12 +142,11 @@
           <p style="color:#b2b6ca;font-size:14.5px;margin:0;flex-grow:1;">Diagnóstico financeiro automático para bares, restaurantes e lanchonetes. Preencha os campos e veja score, causas do desvio e relatório pronto pra imprimir.</p>
           <div style="display:flex;align-items:baseline;gap:8px;padding-top:4px;">
             <span style="font-size:24px;font-weight:500;color:#f3f5fe;">R$ 39,99</span>
-            <span style="font-size:12.5px;color:#75798c;">pagamento único</span>
+            <span style="font-size:12.5px;color:#a2a7bd;">pagamento único</span>
           </div>
-          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-            <a href="https://pay.monetizze.com.br/DQB384105" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;font-weight:500;font-size:13.5px;color:#9184d9;border:1px solid #9184d9;border-radius:8px;padding:10px 18px;">Comprar agora</a>
-            <a href="analise-de-lucro.html" style="font-size:13.5px;color:#b2b6ca;">Ver detalhes →</a>
-          </div>
+          <a href="https://pay.monetizze.com.br/DQB384105" target="_blank" rel="noopener" class="btn-buy" data-track="checkout_click" data-produto="Análise de Lucro" data-preco="39.99" data-local="card_home">Comprar agora</a>
+          <div style="font-size:12.5px;color:#a2a7bd;">Checkout seguro Monetizze · Pix, cartão ou boleto</div>
+          <a href="analise-de-lucro.html" style="font-size:13.5px;color:#b2b6ca;">Ver detalhes →</a>
         </div>
 
         <div style="display:flex;flex-direction:column;gap:12px;background:#232532;border-radius:8px;padding:24px;box-shadow:0 0 0 1px #3f424d;">
@@ -130,12 +158,11 @@
           <p style="color:#b2b6ca;font-size:14.5px;margin:0;flex-grow:1;">Calcule o preço ideal de cada prato a partir do custo, da margem desejada, dos impostos e da comissão de cada canal de venda — com semáforo automático de viabilidade.</p>
           <div style="display:flex;align-items:baseline;gap:8px;padding-top:4px;">
             <span style="font-size:24px;font-weight:500;color:#f3f5fe;">R$ 59,99</span>
-            <span style="font-size:12.5px;color:#75798c;">pagamento único</span>
+            <span style="font-size:12.5px;color:#a2a7bd;">pagamento único</span>
           </div>
-          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-            <a href="precificacao-de-cardapio.html#oferta" style="display:inline-flex;align-items:center;font-weight:500;font-size:13.5px;color:#9184d9;border:1px solid #9184d9;border-radius:8px;padding:10px 18px;">Comprar agora</a>
-            <a href="precificacao-de-cardapio.html" style="font-size:13.5px;color:#b2b6ca;">Ver detalhes →</a>
-          </div>
+          <a href="precificacao-de-cardapio.html#oferta" class="btn-buy" data-track="cta_produto" data-produto="Precificação de Cardápio" data-preco="59.99" data-local="card_home">Comprar agora</a>
+          <div style="font-size:12.5px;color:#a2a7bd;">Checkout seguro Monetizze · Pix, cartão ou boleto</div>
+          <a href="precificacao-de-cardapio.html" style="font-size:13.5px;color:#b2b6ca;">Ver detalhes →</a>
         </div>
 
         <div style="display:flex;flex-direction:column;gap:12px;background:#232532;border-radius:8px;padding:24px;box-shadow:0 0 0 1px #3f424d;">
@@ -147,12 +174,11 @@
           <p style="color:#b2b6ca;font-size:14.5px;margin:0;flex-grow:1;">Previsto x realizado considerando o prazo de repasse do cartão, contas a pagar e receber e saldo projetado — tudo num único lançamento contínuo, sem aba por mês.</p>
           <div style="display:flex;align-items:baseline;gap:8px;padding-top:4px;">
             <span style="font-size:24px;font-weight:500;color:#f3f5fe;">R$ 79,99</span>
-            <span style="font-size:12.5px;color:#75798c;">pagamento único</span>
+            <span style="font-size:12.5px;color:#a2a7bd;">pagamento único</span>
           </div>
-          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-            <a href="fluxo-de-caixa.html#oferta" style="display:inline-flex;align-items:center;font-weight:500;font-size:13.5px;color:#9184d9;border:1px solid #9184d9;border-radius:8px;padding:10px 18px;">Comprar agora</a>
-            <a href="fluxo-de-caixa.html" style="font-size:13.5px;color:#b2b6ca;">Ver detalhes →</a>
-          </div>
+          <a href="fluxo-de-caixa.html#oferta" class="btn-buy" data-track="cta_produto" data-produto="Fluxo de Caixa" data-preco="79.99" data-local="card_home">Comprar agora</a>
+          <div style="font-size:12.5px;color:#a2a7bd;">Checkout seguro Monetizze · Pix, cartão ou boleto</div>
+          <a href="fluxo-de-caixa.html" style="font-size:13.5px;color:#b2b6ca;">Ver detalhes →</a>
         </div>
 
         <div style="display:flex;flex-direction:column;gap:12px;background:#232532;border-radius:8px;padding:24px;box-shadow:0 0 0 1px #3f424d;">
@@ -230,23 +256,13 @@
         <span style="font-size:12.5px;letter-spacing:0.12em;text-transform:uppercase;color:#9184d9;display:inline-block;margin-bottom:14px;">Perguntas frequentes</span>
         <h2 style="font-weight:500;font-size:clamp(26px,3.2vw,34px);line-height:1.15;margin:0;color:#f3f5fe;">Antes de comprar</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px 48px;">
-        <div>
-          <h3 style="font-weight:500;font-size:16.5px;margin:0 0 8px;color:#f3f5fe;">Preciso saber Excel avançado?</h3>
-          <p style="margin:0;font-size:14.5px;color:#b2b6ca;">Não. Você digita números nos campos editáveis — cálculo, formatação e diagnóstico são automáticos.</p>
-        </div>
-        <div>
-          <h3 style="font-weight:500;font-size:16.5px;margin:0 0 8px;color:#f3f5fe;">Como recebo o arquivo?</h3>
-          <p style="margin:0;font-size:14.5px;color:#b2b6ca;">Entrega automática por e-mail assim que o pagamento é confirmado, direto pelo checkout.</p>
-        </div>
-        <div>
-          <h3 style="font-weight:500;font-size:16.5px;margin:0 0 8px;color:#f3f5fe;">E se não servir pra mim?</h3>
-          <p style="margin:0;font-size:14.5px;color:#b2b6ca;">Você tem 7 dias pra pedir reembolso por e-mail, sem precisar justificar.</p>
-        </div>
-        <div>
-          <h3 style="font-weight:500;font-size:16.5px;margin:0 0 8px;color:#f3f5fe;">Tem mensalidade?</h3>
-          <p style="margin:0;font-size:14.5px;color:#b2b6ca;">Não. Pagamento único, arquivo seu, funciona offline e sem cadastro.</p>
-        </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;">
+        <details class="faq"><summary>Preciso saber Excel avançado?</summary><div>Não. Você digita números nos campos editáveis — cálculo, formatação e diagnóstico são automáticos. A demonstração no topo desta página é a mesma lógica da planilha.</div></details>
+        <details class="faq"><summary>Como recebo o arquivo?</summary><div>Entrega automática por e-mail assim que o pagamento é confirmado, direto pelo checkout Monetizze.</div></details>
+        <details class="faq"><summary>Dá para pagar parcelado?</summary><div>Sim. No checkout você escolhe Pix, boleto ou cartão de crédito com parcelamento.</div></details>
+        <details class="faq"><summary>E se não servir pra mim?</summary><div>Você tem 7 dias pra pedir reembolso por e-mail, sem precisar justificar.</div></details>
+        <details class="faq"><summary>Tem mensalidade?</summary><div>Não. Pagamento único, arquivo seu, funciona offline e sem cadastro.</div></details>
+        <details class="faq"><summary>Funciona no LibreOffice ou no Google Sheets?</summary><div>Feita para Excel 2010 ou superior e funciona no LibreOffice Calc. No Google Sheets algumas formatações condicionais podem se comportar de forma diferente.</div></details>
       </div>
     </div>
   </section>
@@ -255,9 +271,9 @@
   <section id="contato" style="padding:48px 32px 96px;">
     <div style="max-width:1120px;margin:0 auto;background:#232532;border-radius:14px;padding:44px;box-shadow:0 0 0 1px #595d6c, 0 16px 40px rgba(0,0,0,0.55);">
       <h2 style="font-weight:500;font-size:clamp(24px,3vw,32px);line-height:1.15;margin:0 0 12px;color:#f3f5fe;">Pare de fechar o mês no achismo</h2>
-      <p style="color:#b2b6ca;font-size:16px;margin:0 0 26px;max-width:52ch;">Preencha uma vez e veja o diagnóstico na hora. R$ 39,99, pagamento único, 7 dias de garantia.</p>
+      <p style="color:#b2b6ca;font-size:16px;margin:0 0 26px;max-width:52ch;">Escolha a ferramenta pelo problema que você tem hoje. Pagamento único, 7 dias de garantia.</p>
       <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
-        <a href="https://pay.monetizze.com.br/DQB384105" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;font-weight:500;font-size:14.5px;color:#9184d9;border:1px solid #9184d9;border-radius:8px;padding:13px 24px;">Comprar a Análise de Lucro</a>
+        <a href="precos.html" class="btn-buy" data-track="cta_final" data-local="rodape">Ver preços e escolher</a>
         <a href="mailto:wwwilliansantosdias@gmail.com" style="font-size:14px;color:#b2b6ca;">Falar com o criador antes</a>
       </div>
     </div>
@@ -272,6 +288,7 @@
       </div>
       <div style="display:flex;gap:22px;flex-wrap:wrap;font-size:13px;">
         <a href="mailto:wwwilliansantosdias@gmail.com" style="color:#b2b6ca;">wwwilliansantosdias@gmail.com</a>
+        <a href="precos.html" style="color:#b2b6ca;">Preços</a>
         <a href="#perguntas" style="color:#b2b6ca;">Reembolso em 7 dias</a>
         <a href="analise-de-lucro.html" style="color:#b2b6ca;">Análise de Lucro</a>
         <a href="precificacao-de-cardapio.html" style="color:#b2b6ca;">Precificação de Cardápio</a>
@@ -282,15 +299,16 @@
 
   <!-- CTA fixo (mobile) -->
   <div class="mobile-cta">
-    <div style="position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(22,24,38,0.96);backdrop-filter:blur(8px);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -1px 0 rgba(233,233,237,0.16);">
+    <div style="position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(22,24,38,0.96);backdrop-filter:blur(8px);padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -1px 0 rgba(233,233,237,0.16);">
       <div>
-        <div style="font-size:13px;color:#cfd3e5;">Análise de Lucro</div>
-        <div style="font-size:12.5px;color:#75798c;">R$ 39,99 · 7 dias de garantia</div>
+        <div style="font-size:13px;color:#cfd3e5;">3 planilhas disponíveis</div>
+        <div style="font-size:12.5px;color:#a2a7bd;">A partir de R$ 39,99 · 7 dias de garantia</div>
       </div>
-      <a href="https://pay.monetizze.com.br/DQB384105" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;min-height:44px;font-weight:500;font-size:14px;color:#9184d9;border:1px solid #9184d9;border-radius:8px;padding:10px 18px;white-space:nowrap;">Comprar</a>
+      <a href="precos.html" class="btn-buy" style="min-height:44px;padding:10px 18px;font-size:14px;width:auto;" data-track="cta_mobile" data-local="barra_fixa">Ver preços</a>
     </div>
   </div>
 
 </div>
+<script src="wds.js" defer></script>
 </body>
 </html>
